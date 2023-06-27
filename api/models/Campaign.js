@@ -10,6 +10,11 @@ module.exports = {
       type: 'string',
       required: true,
     },
+
+    categories: {
+      type: 'string',
+      required: true,
+    },
     goal: {
       type: 'number',
       required: true,

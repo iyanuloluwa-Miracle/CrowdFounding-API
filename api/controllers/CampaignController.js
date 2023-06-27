@@ -1,10 +1,10 @@
 module.exports = {
   create: async (req, res) => {
     try {
-      const { title, description, goal } = req.body;
+      const { title, description, goal, category } = req.body;
 
       // Create a new campaign
-      const campaign = await Campaign.create({ title, description, goal }).fetch();
+      const campaign = await Campaign.create({ title, description, goal, category}).fetch();
 
       res.json({ campaign });
     } catch (error) {
@@ -61,10 +61,10 @@ module.exports = {
   update: async (req, res) => {
     try {
       const { id } = req.params;
-      const { title, description, goal } = req.body;
+      const { title, description, goal, category } = req.body;
 
       // Update campaign
-      const updatedCampaign = await Campaign.updateOne({ id }).set({ title, description, goal });
+      const updatedCampaign = await Campaign.updateOne({ id }).set({ title, description, goal, category });
 
       if (!updatedCampaign) {
         return res.status(404).json({ error: 'Campaign not found' });
