@@ -23,12 +23,14 @@ module.exports.routes = {
 
   'POST /login': 'AuthController.login',
   'POST /signup': 'AuthController.signup',
-  'POST /campaigns': 'CampaignController.create',
-  'GET /campaigns': 'CampaignController.find',
-  'GET /campaigns/:id': 'CampaignController.findOne',
-  'PUT /campaigns/:id': 'CampaignController.update',
-  'DELETE /campaigns/:id': 'CampaignController.delete',
 
+  'POST /campaigns': { controller: 'CampaignController', action: 'create' },
+  'GET /campaigns': { controller: 'CampaignController', action: 'find' },
+  'GET /campaigns/:id': { controller: 'CampaignController', action: 'findOne' },
+  'PUT /campaigns/:id': { controller: 'CampaignController', action: 'update' },
+  'DELETE /campaigns/:id': { controller: 'CampaignController', action: 'delete' },
+  'GET /campaigns/search': { controller: 'CampaignController', action: 'search' },
+  'GET /campaigns/filter': { controller: 'CampaignController', action: 'filter' },
 
   
 

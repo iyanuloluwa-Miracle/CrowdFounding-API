@@ -12,11 +12,39 @@ module.exports = {
     }
   },
 
-  read: async (req, res) => {
+  find: async (req, res) => {
+    try {
+      const { page, limit, search, filter } = req.query;
+
+      // Prepare filter query
+      const filterQuery = filter ? { category: filter } : {};
+
+      // Prepare search query
+      const searchQuery = search ? { title: { contains: search } } : {};
+
+      // Apply pagination
+      const currentPage = parseInt(page) || 1;
+      const recordsPerPage = parseInt(limit) || 10;
+      const skip = (currentPage - 1) * recordsPerPage;
+      const totalCampaigns = await Campaign.count({ ...searchQuery, ...filterQuery });
+      const totalPages = Math.ceil(totalCampaigns / recordsPerPage);
+
+      // Fetch campaigns based on pagination, search, and filter
+      const campaigns = await Campaign.find({
+        where: { ...searchQuery, ...filterQuery },
+        skip,
+        limit: recordsPerPage,
+      });
+
+      res.json({ campaigns, currentPage, totalPages });
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  },
+
+  findOne: async (req, res) => {
     try {
       const { id } = req.params;
-
-      // Find campaign by ID
       const campaign = await Campaign.findOne({ id });
 
       if (!campaign) {
@@ -28,6 +56,7 @@ module.exports = {
       res.status(500).json({ error: 'Server error' });
     }
   },
+
 
   update: async (req, res) => {
     try {
