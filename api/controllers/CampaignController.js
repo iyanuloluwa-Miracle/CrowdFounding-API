@@ -24,7 +24,7 @@ module.exports = {
 
       // Apply pagination
       const currentPage = parseInt(page) || 1;
-      const recordsPerPage = parseInt(limit) || 10;
+      const recordsPerPage = 3; // Set the desired number of campaigns per page
       const skip = (currentPage - 1) * recordsPerPage;
       const totalCampaigns = await Campaign.count({ ...searchQuery, ...filterQuery });
       const totalPages = Math.ceil(totalCampaigns / recordsPerPage);
