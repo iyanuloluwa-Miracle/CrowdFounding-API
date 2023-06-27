@@ -11,7 +11,7 @@ module.exports = {
       required: true,
     },
 
-    categories: {
+    category: {
       type: 'string',
       required: true,
     },
