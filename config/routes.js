@@ -21,6 +21,17 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+  'POST /login': 'AuthController.login',
+  'POST /signup': 'AuthController.signup',
+  'POST /campaigns': 'CampaignController.create',
+  'GET /campaigns': 'CampaignController.find',
+  'GET /campaigns/:id': 'CampaignController.findOne',
+  'PUT /campaigns/:id': 'CampaignController.update',
+  'DELETE /campaigns/:id': 'CampaignController.delete',
+
+
+  
+
 
   /***************************************************************************
   *                                                                          *

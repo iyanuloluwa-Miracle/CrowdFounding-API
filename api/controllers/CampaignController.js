@@ -1,0 +1,66 @@
+module.exports = {
+  create: async (req, res) => {
+    try {
+      const { title, description, goal } = req.body;
+
+      // Create a new campaign
+      const campaign = await Campaign.create({ title, description, goal }).fetch();
+
+      res.json({ campaign });
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  },
+
+  read: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      // Find campaign by ID
+      const campaign = await Campaign.findOne({ id });
+
+      if (!campaign) {
+        return res.status(404).json({ error: 'Campaign not found' });
+      }
+
+      res.json({ campaign });
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  },
+
+  update: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { title, description, goal } = req.body;
+
+      // Update campaign
+      const updatedCampaign = await Campaign.updateOne({ id }).set({ title, description, goal });
+
+      if (!updatedCampaign) {
+        return res.status(404).json({ error: 'Campaign not found' });
+      }
+
+      res.json({ campaign: updatedCampaign });
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  },
+
+  delete: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      // Delete campaign
+      const deletedCampaign = await Campaign.destroyOne({ id });
+
+      if (!deletedCampaign) {
+        return res.status(404).json({ error: 'Campaign not found' });
+      }
+
+      res.json({ message: 'Campaign deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  },
+};
