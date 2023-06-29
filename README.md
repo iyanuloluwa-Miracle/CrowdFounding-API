@@ -27,3 +27,60 @@ This app was originally generated on Fri Jun 23 2023 20:12:57 GMT-0700 (Pacific 
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
 -->
 
+## Base URL
+
+The base URL for all API endpoints is: http://localhost:1337
+
+
+## Endpoints
+
+### User Registration
+
+
+```
+POST /register
+```
+
+Register a new user with the provided username, email, and password.
+
+Request Body:
+
+
+```json
+{
+  "email": "user123@example.com",
+  "password": "password123"
+}
+
+```
+
+#### Response
+
+* `201 Created:` User registration successful. Returns the generated JWT.
+* `400 Bad Request:` Invalid request body.
+* `500 Internal Server Error:` Server encountered an error.
+
+### User Login
+
+```
+POST /login
+```
+
+Login an existing user with the provided email and password.
+
+Request Body:
+
+```json
+{
+  
+  "email": "user123@example.com",
+  "password": "password123"
+}
+```
+
+#### Response
+
+* `200 OK:` User login successful. Returns the generated JWT.
+* `401 Unauthorized:` Invalid email or password.
+* `404 Not Found:` User with the provided email not found.
+* `500 Internal Server Error:` Server encountered an error.
