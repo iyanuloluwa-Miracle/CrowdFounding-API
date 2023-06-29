@@ -1,4 +1,5 @@
-# crowdsouring-api
+# Crownfounding API with Sailsjs
+
 
 a [Sails v1](https://sailsjs.com) application
 
