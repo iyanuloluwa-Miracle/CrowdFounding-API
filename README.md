@@ -99,5 +99,18 @@ Request Body:
 * Success Response:
     * Code `200 Ok` 
  
+### Sample Request :
 
+
+```json
+
+{
+  "title": "Campaign Title",
+  "description": "Campaign Description",
+  "category": "Category",
+  "goal": 10000
+}
+
+
+```
 
