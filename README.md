@@ -80,7 +80,7 @@ Request Body:
 
 #### Response
 
-* `200 OK:` User login successful. Returns the generated JWT.
+* `200 OK:` User login successful.
 * `401 Unauthorized:` Invalid email or password.
 * `404 Not Found:` User with the provided email not found.
 * `500 Internal Server Error:` Server encountered an error.
