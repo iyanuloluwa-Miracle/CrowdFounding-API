@@ -1,5 +1,7 @@
 # Crownfounding API with Sailsjs
 
+This API that facilitates the creation of campaigns and the processing of donations. This API offers functionalities for campaign creation and donation processing, allowing users to easily create campaigns and accept donations and some amazing endpoints have been developed too.
+
 
 a [Sails v1](https://sailsjs.com) application
 
