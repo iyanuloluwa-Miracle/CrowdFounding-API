@@ -84,3 +84,20 @@ Request Body:
 * `401 Unauthorized:` Invalid email or password.
 * `404 Not Found:` User with the provided email not found.
 * `500 Internal Server Error:` Server encountered an error.
+
+
+## Create Campaign
+
+* URL: `/campaigns`
+* Method: `POST`
+* Description: Create a new campaign.
+* Request Body:
+    * `title` (string, required): Campaign title.
+    * `description` (string, required): Campaign description.
+    * `category` (string, required): Campaign category.
+    * `goal` (number, required): Campaign fundraising goal.
+* Success Response:
+    * Code `200 Ok` 
+ 
+
+
