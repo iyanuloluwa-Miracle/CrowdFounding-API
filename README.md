@@ -131,7 +131,7 @@ Request Body:
 * Content: `{ "error": "Server error" }`
 * Sample Request:
 
-```json
+```
 GET /campaigns?page=1&limit=10&search=laptop&filter=technology
 ```  
 
