@@ -113,4 +113,75 @@ Request Body:
 
 
 ```
+## Get Campaigns by ID
 
+```
+GET /campaigns/:id
+```
+
+Retrieve user information by ID.
+
+### Request Parameters:
+
+* id (number): Campaign ID
+  
+#### Response: 
+
+
+* `200 OK:` User found. Returns the user data.
+* `404 Not Found:` User with the provided ID not found.
+* `500 Internal Server Error:` Server encountered an error.
+
+## Update User
+
+```  
+PUT /campaigns/:id
+ ```
+
+Update Campaign information by ID.
+
+### Request Parameters:
+
+* `id`(number): Campaign ID
+
+#### Request Body
+
+```json
+{
+  "title": "UpdatedCampaign Title",
+  "description": "UpdatedCampaign Description",
+  "category": "UpdatedCategory",
+}
+```
+
+#### Response: 
+
+
+* `200 OK:` User found. Returns the user data.
+* `404 Not Found:` User with the provided ID not found.
+* `500 Internal Server Error:` Server encountered an error.
+
+
+
+## Delete User
+
+```
+DELETE /campaigns/:id
+```
+
+Delete a Campaign by ID.
+
+### Request Parameters:
+
+* `id`(number): Campaign ID
+
+#### Response: 
+
+
+* `200 OK:` User found. Returns the user data.
+* `404 Not Found:` User with the provided ID not found.
+* `500 Internal Server Error:` Server encountered an error.
+
+## Conclusion
+
+The Crowdsourcing API provides endpoints for user registration, login, retrieval, update, and deletion.
