@@ -115,22 +115,25 @@ Request Body:
 ```
 ## Get Campaigns by ID
 
-```
-GET /campaigns/:id
-```
+* URL: `/campaigns`
+* Method: `GET`
+* Description: Get a list of campaigns with pagination, search, and filtering options.
+* Query Parameters:
+      * `page` (number): Current page number (default: 1).
+      * `limit` (number): Number of records per page (default: 10).
+      * `search` (string): Search keyword to filter campaigns by title (optional).
+      * `filter` (string): Filter campaigns by category (optional).
+* Success Response:
+* Code: `200 OK`
+* Content: `{ "campaigns": [...], "currentPage": 1, "totalPages": 3 }`
+* Error Message:
+* Code: `500 Internal Server Error`
+* Content: `{ "error": "Server error" }`
+* Sample Request:
 
-Retrieve user information by ID.
-
-### Request Parameters:
-
-* id (number): Campaign ID
-  
-#### Response: 
-
-
-* `200 OK:` User found. Returns the user data.
-* `404 Not Found:` User with the provided ID not found.
-* `500 Internal Server Error:` Server encountered an error.
+```json
+GET /campaigns?page=1&limit=10&search=laptop&filter=technology
+```  
 
 ## Update User
 
@@ -152,6 +155,7 @@ Update Campaign information by ID.
   "description": "UpdatedCampaign Description",
   "category": "UpdatedCategory",
 }
+
 ```
 
 #### Response: 
