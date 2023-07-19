@@ -68,7 +68,7 @@ module.exports = {
       const updatedCampaign = await Campaign.updateOne({ id }).set({ title, description, goal, category });
 
       if (!updatedCampaign) {
-        return res.status(404).json({ error: 'Campaign not found' });
+        return res.status(404).json({ error: 'Campaign not found, Please create one now' });
       }
 
       res.json({ campaign: updatedCampaign });
